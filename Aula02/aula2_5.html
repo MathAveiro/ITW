@@ -1,37 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<meta charset="UTF-8">
 	<meta name="Author" content="Cláudio e Fábio Henriques">
 	<meta name="Keywords" content="exercicio">
 	<meta name="Description" content="Exercício 5 da aula 2">
 	<title>Exercício 5 - Aula 2</title>
-	<style type="text/css">
-		
+	<style>
+		.font {
+			font-family: 'Open Sans', sans-serif;
+		}
 	</style>
 </head>
 <body>
-	<form name="PersonData" action="http://192.168.160.36/FormEcho.aspx" method="post">
+	<form class="font" name="PersonData" action="http://192.168.160.36/FormEcho.aspx" method="post">
 		<fieldset>
 			<legend>Informação pessoal</legend>
-			<label for="curso">Curso</label>
-				<select id="curso" name="Curso">
-					<option value="1" selected="selected">Licenciatura em Engenharia Informática</option>
-					<option value="2">Mestrado Integrado em Engenharia de Computadores e Telemática</option>
-					<option value="3">Mestrado Integrado em Engenharia Eletrónica e Telecomunicações</option>
-					<option value="4">Outro</option>
-				</select>
-			</p>
-			<label for="firstName">First Name</label>
-			<input id="firstName" type="text" name="firstName" placeholder="Digite o seu primeiro nome"/><br/></label>
-			<label for="lastName">Last Name</label>
-			<input id="lastName" type="text" name="lastName" placeholder="Digite o seu sobrenome"/><br/></label>
-			<label for="password">Password</label>
-			<input id="password" type="password" name="password" placeholder="Digite a sua palavra-passe"/><br/></label>
+			<table width="100%">
+				<tr>
+					<td>
+						<a href="http://www.ua.pt/">
+							<img height="50px" src="http://sweet.ua.pt/paulo.dias/Paulo%20Dias_files/logo_ua.png" alt="UA" title="UA">
+						</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="curso">Curso</label>
+							<select id="curso" name="Curso">
+								<option value="1" selected="selected">Licenciatura em Engenharia Informática</option>
+								<option value="2">Mestrado Integrado em Engenharia de Computadores e Telemática</option>
+								<option value="3">Mestrado Integrado em Engenharia Eletrónica e Telecomunicações</option>
+								<option value="4">Outro</option>
+							</select>
+						</p>
+						<table>
+							<tr>
+								<td>
+									<label for="firstName">First Name</label>
+								</td>
+								<td>
+									<input id="firstName" type="text" name="firstName" placeholder="Digite o seu primeiro nome"/><br/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="lastName">Last Name</label>
+								</td>
+								<td>
+									<input id="lastName" type="text" name="lastName" placeholder="Digite o seu sobrenome"/><br/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label for="password">Password</label>
+								</td>
+								<td>
+									<input id="password" type="password" name="password" placeholder="Digite a sua palavra-passe"/><br/>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
 		</fieldset>
-		<fieldset>
+		<fieldset style="text-align: center">
 			<legend>Comments</legend>
-			<label hidden for="comments">Comentários</label><textarea id="comments" name="comments" rows="4" cols="80" placeholder="Insira os seus comentários"></textarea>
+			<label hidden for="comments">Comentários</label><textarea style="font-family: 'Open Sans', sans-serif" id="comments" name="comments" rows="4" cols="180" placeholder="Insira os seus comentários"></textarea>
 		</fieldset>
 		<table width="100%">
 			<tr>
@@ -46,9 +82,9 @@
 				<td>
 					<fieldset>
 						<legend>Cor preferida</legend>
-						<input id="blue" type="radio" name="color" value="Azul"><label for="blue">Azul</label><br/>
-						<input id="green" type="radio" name="color" value="Verde"><label for="green">Green</label><br/>
-						<input id="red" type="radio" name="color" value="Vermelho"><label for="red">Vermelho</label><br/>
+						<input id="blue" type="radio" name="color" value="Azul"><label for="blue" style="color: blue">Azul</label><br/>
+						<input id="green" type="radio" name="color" value="Verde"><label for="green" style="color: green">Verde</label><br/>
+						<input id="red" type="radio" name="color" value="Vermelho"><label for="red" style="color: rgb(155,000,000)">Vermelho</label><br/>
 						<input id="other" type="radio" name="color" value="Outra"><label for="other">Outro</label><br/>
 					</fieldset>
 				</td>
