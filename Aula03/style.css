@@ -1,61 +1,64 @@
+body {
+	font-family: arial, verdana, sans-serif;
+}
 ul {
-			list-style-type: none;
-			margin: 0;
-			padding: 0;
-			overflow: hidden;
-			background-color: #333;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+li {
+	float: left;
+	border-right: 1px solid #bbb;
+}
+	li:last-child {
+		border-right: none;
+		float: right;
+	}
+	li a {
+		display: block;
+		color: white;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+	}
+		li a: hover:not(.active) {
+			 background-color: #444;
 		}
-		li {
-			float: left;
-			border-right: 1px solid #bbb;
+		li a.active:hover { 
+			color: #444;
 		}
-			li:last-child {
-				border-right: none;
-				float: right;
-			}
-			li a {
-				display: block;
-				color: white;
-				text-align: center;
-				padding: 14px 16px;
-				text-decoration: none;
-			}
-				li a: hover:not(.active) {
-					 background-color: #444;
-				}
-				li a.active:hover { 
-					color: #444;
-				}
-			li:hover {
-				background-color: #3d7835;
-			}
-		.active {
-			background-color: #5CAF50;
-		}
-		.banner {
-			background-color: grey;
-			height: 100px;
-		}
-		.div1 {
-			border: none;
-			margin: 0px;
-			padding: 0px;
-			display: inline-block;
-			width: 100%;
-		}
-		.advertising {
-			float: right;
-			background-color: #626264;
-			width: 25%;
-			height: 300px
-		}
-		.content {
-			display: inline-block;
-			width: 75%;
-			height: 300px;
-			background-color: darkgrey;
-		}
-		.footer {
-			background-color: grey; 
-			height: 50px;
-		}
+	li:hover {
+		background-color: #3d7835;
+	}
+.active {
+	background-color: #5CAF50;
+}
+.banner {
+	background-color: grey;
+	height: 100px;
+}
+.div1 {
+	border: none;
+	margin: 0px;
+	padding: 0px;
+	display: inline-block;
+	width: 100%;
+}
+.advertising {
+	float: right;
+	background-color: #626264;
+	width: 25%;
+	height: 300px
+}
+.content {
+	display: inline-block;
+	width: 75%;
+	height: 300px;
+	background-color: darkgrey;
+}
+.footer {
+	background-color: grey; 
+	height: 50px;
+}
