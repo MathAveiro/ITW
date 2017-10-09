@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<meta charset="UTF-8">
+	<meta name="Author" content="Cláudio e Fábio Henriques">
+	<meta name="Keywords" content="exercicio">
+	<meta name="Description" content="Exercício 2 da aula 3">
+	<title>Exercício 2 - Aula 3</title>
+</head>
+<body>
+	<form class="font" name="PersonData" action="http://192.168.160.36/FormEcho.aspx" method="post">
+		<div class="content" style="width: 10%">
+			<label for="name">Nome</label><br/>
+			<label for="login">Login</label><br/>
+			<label for="password">Password</label><br/>
+		</div>
+		<div class="adversiting" style="width: 90%">
+			<input id="name" type="text" name="name" placeholder="Digite o seu primeiro nome"/><br/>
+			<input id="login" type="text" name="login" placeholder="Digite o seu sobrenome"/><br/>
+			<input id="password" type="password" name="password" placeholder="Digite a sua palavra-passe"/><br/>			
+		</div>
+		<div class="content" style="width: 10%; height: 200px; float: left;">
+			<label for="name">Disciplinas</label><br/>
+		</div>
+		<div class="adversiting" style="width: 45%; height: 200px; float: left;">			
+			<fieldset>
+				<legend>1º Semestre - Curriculares</legend>
+				<input id="ALGA" type="checkbox" name="1c" value="ALGA"><label for="ALGA">Álgebra Linear e Geometria Analítica</label><br/>
+				<input id="EF" type="checkbox" name="1c" value="EF"><label for="EF">Elementos de Física</label><br/>
+				<input id="C1" type="checkbox" name="1c" value="C1"><label for="C1">Cálculo I</label><br/>
+				<input id="ITW" type="checkbox" name="1c" value="ITW"><label for="ITW">Introdução às Tecnologias Web</label><br/>
+				<input id="FP" type="checkbox" name="1c" value="FP"><label for="FP">Fundamentos de Programação</label><br/>
+			</fieldset>
+			<fieldset>
+				<legend>1º Semestre - Opcionais</legend>
+				<input id="blue" type="radio" name="1o" value="Azul"><label for="blue">Azul</label>
+				<input id="green" type="radio" name="1o" value="Verde"><label for="green">Verde</label>
+				<input id="red" type="radio" name="1o" value="Vermelho"><label for="red">Vermelho</label>
+				<input id="other" type="radio" name="1o" value="Outra"><label for="other">Outro</label><br/>
+			</fieldset>
+		</div>
+		<div class="adversiting" style="width: 45%; height: 200px">			
+			<fieldset>
+				<legend>2º Semestre - Curriculares</legend>
+				<input id="MAS" type="checkbox" name="2c" value="MAS"><label for="MAS">Modelação e Análise de Sistemas</label><br/>
+				<input id="C2" type="checkbox" name="2c" value="C2"><label for="C2">Cálculo II</label><br/>
+				<input id="MD" type="checkbox" name="2c" value="MD"><label for="MD">Matemática Discreta</label><br/>
+				<input id="IAC" type="checkbox" name="2c" value="IAC"><label for="IAC">Introdução à Arquitetura de Computadores</label><br/>
+				<input id="POO" type="checkbox" name="2c" value="POO"><label for="POO">Programação Orientada a Objetos</label><br/>
+			</fieldset>
+			<fieldset>
+				<legend>2º Semestre - Opcionais</legend>
+				<input id="blue" type="radio" name="2o" value="Azul"><label for="blue">Azul</label>
+				<input id="green" type="radio" name="2o" value="Verde"><label for="green">Verde</label>
+				<input id="red" type="radio" name="2o" value="Vermelho"><label for="red">Vermelho</label>
+				<input id="other" type="radio" name="2o" value="Outra"><label for="other">Outro</label><br/>
+			</fieldset>
+		</div>	
+		<footer align="center">
+			<label hidden for="submit">Submit</label>
+			<input id="submit" type="Submit" name="Button" value="Submit Query">
+			<label hidden for="reset">Reset</label>
+			<input id="reset" type="reset" name="resetBtn" value="Reset">
+		</footer>
+	</form>
+</body>
+</html>
