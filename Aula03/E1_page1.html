@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Exercício 01 | Aula 03</title>
+	<style type="text/css">
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			background-color: #333;
+		}
+		li {
+			float: left;
+			border-right: 1px solid #bbb;
+		}
+			li:last-child {
+				border-right: none;
+				float: right;
+			}
+			li a {
+				display: block;
+				color: white;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+			}
+				li a: hover:not(.active) {
+					 background-color: #444;
+				}
+				li a.active:hover { 
+					color: #444;
+				}
+			li:hover {
+				background-color: #3d7835;
+			}
+		.active {
+			background-color: #5CAF50;
+		}
+		#banner {
+			background-color: grey;
+			height: 100px;
+		}
+		#div1 {
+			border: none;
+			margin: 0px;
+			padding: 0px;
+			display: inline-block;
+			width: 100%;
+		}
+		#advertising {
+			float: right;
+			background-color: #626264;
+			width: 25%;
+			height: 300px
+		}
+		#content {
+			display: inline-block;
+			width: 75%;
+			height: 300px;
+			background-color: darkgrey;
+		}
+		#footer {
+			background-color: grey; 
+			height: 50px;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<a href="E1_index.html">Índex</a>
+		</li>
+		<li>
+			<a href="E1_page1.html" class="active">Page 1</a>
+		</li>
+		<li>
+			<a href="E1_page2.html">Page 2</a>
+		</li>
+		<li>
+			<a href="E1_page3.html">Page 3</a>
+		</li>
+	</ul>
+	<div id="banner">
+		Banner
+	</div>
+	<div id="content">Content</div>
+	<div id="advertising">Advertising</div>
+	<div id="footer">Footer</div>
+</body>
+</html>
