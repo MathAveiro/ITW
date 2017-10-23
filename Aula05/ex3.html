@@ -5,6 +5,11 @@
     <meta name="Author" content="Cláudio e Fábio Henriques">
     <meta name="Keywords" content="exercicio">
     <meta name="Description" content="Exercício 3 da aula 5">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Exercício 3 - Aula 5</title>
     <script>
         function calcula() {
@@ -56,17 +61,43 @@
     </script>
 </head>
 <body>
-    <input id="op1" value=""/>
-    <select id="op">
-        <option value="%">%</option>
-        <option value="/">/</option>
-        <option value="+">+</option>
-        <option value="-">-</option>
-        <option value="*">*</option>
-        <option value="!">!</option>
-    </select>
-    <input id="op2" value=""/>
-    <input id="res" value="" /><br />
-    <button onclick="calcula()">Calcular</button>
+    <div class="col-sm-12 col-xs-12 col-lg-12">
+        <h1>
+            <span class="fa fa-calculator"></span>  Calculadora
+        </h1>     
+    </div>
+    <div class="col-sm-12 col-lg-12 col-xs-12"><hr></div>
+    <table class="col-xs-12 col-sm-12 col-lg-12">
+        <tr>
+            <td class="col-sm-12 col-xs-12 col-lg-12">
+                <div class="col-sm-4 col-xs-4 col-lg-4">
+                    <input type="text" id="op1" value="" class="form-control input-sm"/>
+                </div>
+                <div type="text" class="form-group col-sm-4 col-xs-4 col-lg-4">
+                    <select id="op" class="form-control input-sm">
+                    <option value="%">%</option>
+                    <option value="/">/</option>
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="!">!</option>
+                    </select>
+                </div>
+                <div class="col-sm-4 col-xs-4 col-lg-4">
+                    <input type="text" id="op2" value="" class="form-control input-sm"/>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="col-sm-12 col-xs-12 col-lg-12">
+                <div class="col-sm-6 col-xs-6 col-lg-6">
+                    <button class="btn btn-primary btn-block" onclick="calcula()">Calcular</button>
+                </div>
+                <div class="col-sm-6 col-xs-6 col-lg-6">
+                    <input type="text" id="res" value="" class="form-control input-sm"/><br/>
+                </div>
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
