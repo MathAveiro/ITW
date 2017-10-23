@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Cláudio e Fábio Henriques">
+    <meta name="Keywords" content="exercicio">
+    <meta name="Description" content="Exercício 4 da aula 5">
+    <title>Exercício 4 - Aula 5</title>
+</head>
+<body>
+    <table style="text-align:center">
+        <tr>
+            <td>
+                <img src="small-light-bulb.png" id="lamp" style="height:200px;width:200px;" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="ligar()">Ligar</button>
+                <button onclick="desligar()">Desligar</button>
+            </td>
+        </tr>
+    </table>
+    <script>
+        function ligar() {
+            document.getElementById("lamp").src = "small-light-bulb-y.png";
+        }
+        function desligar() {
+            document.getElementById("lamp").src = "small-light-bulb.png";
+        }
+    </script>
+</body>
+</html>

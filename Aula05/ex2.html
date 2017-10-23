@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Cláudio e Fábio Henriques">
+    <meta name="Keywords" content="exercicio">
+    <meta name="Description" content="Exercício 2 da aula 5">
+    <title>Exercício 2 - Aula 5</title>
+    <script>
+        var a = "3";
+        var b = 3;
+        console.log(a + 1);
+        console.log(b + 1);
+        if (a == b) {
+            alert("Iguais");
+        } else {
+            alert("Diferentes");
+        }
+        if (a === b) {
+            alert("Iguais");
+        } else {
+            alert("Diferentes");
+        }
+        a = "5";
+        switch (a) {
+            case "abc":
+                alert("string abc");
+                break;
+            case 3:
+                alert("inteiro 3");
+                break;
+            default:
+                alert("outro");
+        }
+    </script>
+</head>
+<body>
+    <input id="res" />
+    <script>
+        function soma(x, y) {
+            return x + y;
+        }
+        var resultado = soma(3, 4);
+        var res = document.getElementById("res");
+        res.value = resultado;
+    </script>
+</body>
+</html>
