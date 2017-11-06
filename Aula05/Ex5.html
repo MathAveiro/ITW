@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Exercício 5</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        piece {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            border-radius: 50%;
+        }
+        #azul {
+            background-color: blue;
+        }
+        #verde {
+            background-color: green;
+        }
+        #amarelo {
+            background-color: yellow;
+        }
+        #vermelho {
+            background-color: red;
+        }
+        .square {
+            width: 50px;
+            height: 50px;
+         }
+    </style>
+    
+</head>
+<body>
+    <div class="container-fluid">
+        <div id="table">
+            <button onclick="scramble()" class="btn btn-primary">Baralhar</button>
+            <span id="currentInfo"></span>
+        </div>
+    </div>
+        
+    <script>
+
+        function setCurrentDiv() {
+            var x = event.target.tagName;
+            document.getElementById("currentInfo").innerHTML = "<br/>Olá, eu sou o " + event.target.id + "<br/>x:" + event.target.style.left + "<br/>y:" + event.target.style.top;
+        }
+
+        function clearSelected() {
+            document.getElementById("currentInfo").innerHTML = "";
+        }
+
+        function scramble() {
+            randomPos("azul");
+            randomPos("vermelho");
+            randomPos("amarelo");
+            randomPos("verde");
+        }
+
+        function randomPos(id) {
+            var piece = document.getElementById(id);
+            var wpiece = Math.random() * (window.innerWidth-50);
+            var hpiece = Math.random() *(window.innerHeight-50);
+            piece.style.left = wpiece + 'px';
+            piece.style.top = hpiece + 'px';
+        }
+        
+        function init() {
+            var re1 = document.createElement("piece");
+            re1.setAttribute("id", "azul");
+            re1.setAttribute("onmouseover", "setCurrentDiv()");
+            re1.setAttribute("onmouseout", "clearSelected()");
+            document.getElementById("table").appendChild(re1);
+            var re2 = document.createElement("piece");
+            re2.setAttribute("id", "vermelho");
+            re2.setAttribute("onmouseover", "setCurrentDiv()");
+            re2.setAttribute("onmouseout", "clearSelected()");
+            document.getElementById("table").appendChild(re2);
+            var re3 = document.createElement("piece");
+            re3.setAttribute("id", "verde");
+            re3.setAttribute("onmouseover", "setCurrentDiv()");
+            re3.setAttribute("onmouseout", "clearSelected()");
+            document.getElementById("table").appendChild(re3);
+            var re4 = document.createElement("piece");
+            re4.setAttribute("id", "amarelo");
+            re4.setAttribute("onmouseover", "setCurrentDiv()");
+            re4.setAttribute("onmouseout", "clearSelected()");
+            document.getElementById("table").appendChild(re4);
+
+            scramble();
+        }
+        window.onload = init;
+    </script>
+</body>
+</html>
