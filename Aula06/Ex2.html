@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Exercício 2 - Aula 06</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        .h_error {
+            width: 50%;
+            display: none;
+        }
+        .d_error {
+            display: block;
+        }
+    </style>
+    <script type="text/javascript">
+        function testFormValidate() {
+            var retVal = true;
+            var pdfname = document.getElementById("pdfname");
+            if (pdfname.value.trim().length < 3) {
+                retVal = false;
+                if(document.getElementById("fname_error").classList.contains("h_error")) {
+                    document.getElementById("fname_error").classList.remove("h_error")
+                }
+                if (!document.getElementById("fname_error").classList.contains("d_error")) {
+                    document.getElementById("fname_error").classList.add("d_error")
+                }
+            } else {
+                if (!document.getElementById("fname_error").classList.contains("h_error")) {
+                    document.getElementById("fname_error").classList.add("h_error")
+                }
+                if (document.getElementById("fname_error").classList.contains("d_error")) {
+                    document.getElementById("fname_error").classList.remove("d_error")
+                }
+            }
+            var pdlname = document.getElementById("pdlname");
+            if (pdlname.value.trim().length < 3) {
+                retVal = false;
+                if (document.getElementById("lname_error").classList.contains("h_error")) {
+                    document.getElementById("lname_error").classList.remove("h_error")
+                }
+                if (!document.getElementById("lname_error").classList.contains("d_error")) {
+                    document.getElementById("lname_error").classList.add("d_error")
+                }
+            } else {
+                if (!document.getElementById("lname_error").classList.contains("h_error")) {
+                    document.getElementById("lname_error").classList.add("h_error")
+                }
+                if (document.getElementById("lname_error").classList.contains("d_error")) {
+                    document.getElementById("lname_error").classList.remove("d_error")
+                }
+            }
+            var pdpassword = document.getElementById("pdpassword");
+            if (pdpassword.value.trim().length < 8) {
+                retVal = false;
+                if (document.getElementById("p_error").classList.contains("h_error")) {
+                    document.getElementById("p_error").classList.remove("h_error")
+                }
+                if (!document.getElementById("p_error").classList.contains("d_error")) {
+                    document.getElementById("p_error").classList.add("d_error")
+                }
+            } else {
+                if (!document.getElementById("p_error").classList.contains("h_error")) {
+                    document.getElementById("p_error").classList.add("h_error")
+                }
+                if (document.getElementById("p_error").classList.contains("d_error")) {
+                    document.getElementById("p_error").classList.remove("d_error")
+                }
+            }
+            var pdcomment = document.getElementById("pdcomment");
+            if (pdcomment.value < 30) {
+                retVal = false;
+                if (document.getElementById("c_error").classList.contains("h_error")) {
+                    document.getElementById("c_error").classList.remove("h_error")
+                }
+                if (!document.getElementById("c_error").classList.contains("d_error")) {
+                    document.getElementById("c_error").classList.add("d_error")
+                }
+            } else {
+                if (!document.getElementById("c_error").classList.contains("h_error")) {
+                    document.getElementById("c_error").classList.add("h_error")
+                }
+                if (document.getElementById("c_error").classList.contains("d_error")) {
+                    document.getElementById("c_error").classList.remove("d_error")
+                }
+            }
+            return retVal;
+        }
+    </script>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-12 page-header">
+            <h1>Boletim de inscrição</h1>
+        </div>
+    </div>
+    <div class="row">
+        <form method="post" action="http://192.168.160.36/FormEcho.aspx">
+            <div class="col-xs-2 form-control-static text-right">Primeiro nome: </div>
+            <div class="col-xs-10">
+                <input type="text" name="fname" id="pdfname" placeholder="Primeiro nome" class="form-control"/>
+                <div id="fname_error" class="h_error form-control-static bg-danger text-danger">&nbsp;<i class="fa fa-exclamation-triangle"></i>Insira um nome válido!</div>
+            </div>
+            <div class="col-xs-2 form-control-static text-right">Último nome: </div>
+            <div class="col-xs-10">
+                <input type="text" name="lname" id="pdlname" placeholder="Último nome" class="form-control" />
+                <div id="lname_error" class="h_error form-control-static bg-danger text-danger">&nbsp;<i class="fa fa-exclamation-triangle"></i>Insira um nome válido!</div>
+            </div>
+            <div class="col-xs-2 form-control-static text-right">Password: </div>
+            <div class="col-xs-10">
+                <input type="password" name="fname" id="pdpassword" placeholder="Password" class="form-control" />
+                <div id="p_error" class="h_error form-control-static bg-danger text-danger">&nbsp;<i class="fa fa-exclamation-triangle"></i>Insira uma password válida!</div>
+            </div>
+            <div class="col-xs-2 form-control-static text-right">Comentários: </div>
+            <div class="col-xs-10">
+                <textarea name="comment" id="pdcomment" rows="4" cols="80" placeholder="Comentário" class="form-control"></textarea>
+                <div id="c_error" class="h_error form-control-static bg-danger text-danger">&nbsp;<i class="fa fa-exclamation-triangle"></i>Insira um comentário válido!</div>
+            </div>
+            <div class="col-xs-12">
+                <hr />
+            </div>
+            <div class="col-xs-12 text-center">
+                <input name="btn1" type="reset" class="btn btn-default" value="Limpar Dados" />
+                <input name="btn2" type="submit" class="btn btn-primary" onclick="return testFormValidate()" value="Submeter" />
+            </div>
+        </form>
+    </div>
+       
+</body>
+</html>

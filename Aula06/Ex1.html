@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora ITW</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- <link href="calculadora.css" rel="stylesheet" /> -->
+</head>
+<body>
+    <div class="page-header"></div>
+    <div class="col-lg-6 col-lg-offset-3 col-xs-12">
+        <div class="panel panel-info">
+            <div class="panel-heading"><h2 id="res">0</h2></div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-3"><input class="form-control btn btn-default btn-lg tecla" value="1" onclick="addNumber()" /></div>
+                    <div class="col-sm-3"><input class="form-control btn btn-default btn-lg tecla" value="2" onclick="addNumber()" /></div>
+                    <div class="col-sm-3"><input class="form-control btn btn-default btn-lg tecla" value="3" onclick="addNumber()" /></div>
+                    <div class="col-sm-3"><input class="form-control btn btn-default btn-lg tecla" value="+" onclick="addOperation()" /></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3"><input class="form-control btn btn-default btn-lg tecla" value="4" onclick="addNumber()" /></div>
+                    <div class="col-sm-3"><input class="form-control btn btn-default btn-lg tecla" value="5" onclick="addNumber()" /></div>
+                    <div class="col-sm-3"><input class="form-control btn btn-default btn-lg tecla" value="6" onclick="addNumber()" /></div>
+                    <div class="col-sm-3"><input class="form-control btn btn-default btn-lg tecla" value="-" onclick="addOperation()" /></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3"><input class="form-control btn btn-default btn-lg tecla" value="7" onclick="addNumber()" /></div>
+                    <div class="col-sm-3"><input class="form-control btn btn-default btn-lg tecla" value="8" onclick="addNumber()" /></div>
+                    <div class="col-sm-3"><input class="form-control btn btn-default btn-lg tecla" value="9" onclick="addNumber()" /></div>
+                    <div class="col-sm-3"><input class="form-control btn btn-default btn-lg tecla" value="*" onclick="addOperation()" /></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3"><input class="form-control btn tecla btn-danger btn-lg" value="C" onclick="clearResult()" /></div>
+                    <div class="col-sm-3"><input class="form-control btn btn-default btn-lg tecla" value="0" onclick="addNumber()" /></div>
+                    <div class="col-sm-3"><input class="form-control btn btn-primary btn-lg tecla" value="=" onclick="calculate()" /></div>
+                    <div class="col-sm-3"><input class="form-control btn btn-default btn-lg tecla" value="/" onclick="addOperation()" /></div>
+                </div>
+            </div>
+            <div class="panel-footer"><small>&copy; ITW 2017/18 - Calculadora</small></div>
+        </div>
+    </div>
+    <script src="../Scripts/jquery-3.2.1.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script src="calculadora.js"></script>
+</body>
+</html>
