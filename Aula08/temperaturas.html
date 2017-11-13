@@ -13,7 +13,7 @@
             $("#citySelector").change(function () {
                 $.ajax({
                     url: "http://api.openweathermap.org/data/2.5/weather",                    data: {
-                        q: $("#citySelector").val(),
+                        q: $("#citySelector").val().trim(),
                         APPID: 'b2b1df463182c3cca5276e9d3267cc95'
                     },
                     success: function(data) {
@@ -22,9 +22,10 @@
                             $("#cityName").html(data.name + " / " + data.sys.country);
                             $("#coordinates").html("Lon (º): " + data.coord.lon + "/ Lat (º) " + data.coord.lat);
                             $("#weather").html(data.weather[0].description);
+                            $("#icon").attr("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
                             $("#temp").html(data.main.temp.toString() + "ºK / " + (data.main.temp - 273.15).toString() + "ºC");
                             $("#pressure").html(data.main.pressure);
-                            $("#allData").val(JSON.stringify(data));
+                            $("#allData").html(JSON.stringify(data));
                         } else {
                             $("table").addClass("hidden");
                             alert(data.message);
@@ -32,6 +33,7 @@
                     },
                     error: function (data) {
                         $("table").addClass("hidden");
+                        console.log(data)
                         alert("Error!");
                     }
                 });
@@ -44,18 +46,18 @@
         <select id="citySelector" class="form-control">
             <option value="">Select a city name</option>
             <option value="Aveiro, PT">Aveiro</option>
-            <option value="Oporto, PT">Porto</option>
+            <option value="Porto, PT">Porto</option>
             <option value="Paris, FR">Paris</option>
             <option value="London, UK">Londres</option>
-            <option value="New York, USA">Nova Iorque</option>
+            <option value="New York, US">Nova Iorque</option>
         </select>
         <table class="table table-striped hidden">
-            <tr><td class="col-xs-2">City Name:</td><td class="col-xs-10" id="cityName"></td></tr>
-            <tr><td class="col-xs-2">Coordinates:</td><td class="col-xs-10" id="coordinates"></td></tr>
-            <tr><td class="col-xs-2">weather:</td><td class="col-xs-10" id="weather"></td></tr>
-            <tr><td class="col-xs-2">temp:</td><td class="col-xs-10" id="temp"></td></tr>
-            <tr><td class="col-xs-2">pressure:</td><td class="col-xs-10" id="pressure"></td></tr>
-            <tr><td class="col-xs-2">Dados recolhidos </td><td class="col-xs-10" id="allData"></td></tr>
+            <tr><td class="col-xs-2">City Name:</td><td colspan="2" class="col-xs-10" id="cityName"></td></tr>
+            <tr><td class="col-xs-2">Coordinates:</td><td colspan="2" class="col-xs-10" id="coordinates"></td></tr>
+            <tr><td class="col-xs-2">weather:</td><td class="col-xs-2"><img id="icon" src="" /></td><td class="col-xs-8" id="weather"></td></tr>
+            <tr><td class="col-xs-2">temp:</td><td colspan="2" class="col-xs-10" id="temp"></td></tr>
+            <tr><td class="col-xs-2">pressure:</td><td colspan="2" class="col-xs-10" id="pressure"></td></tr>
+            <tr><td class="col-xs-2">Dados recolhidos </td><td colspan="2" class="col-xs-10" id="allData"></td></tr>
         </table>
     </div>
 </body>
