@@ -22,26 +22,34 @@
                 $("#valorMax").val(valMax);
             });
             $("#form").submit(function submit(event) {
-                var retVal = true;
+                //var retVal = true;
+                var retValName = retValMorada = retValEmail = retValLocal = true;
                 if ($("#nome").val().trim().length < 10 || $("#nome").val().trim().length > 100) {
                     $('#modal-content').append($('#nomeError').removeClass("error"));
                     //$("#nomeError").removeClass("error");
-                    retVal = false;
+                    retValName = false;
                 } else {
                     $('#modal-content').children("#nomeError").addClass("error");
                 }
                 if ($("#morada").val().trim().length < 20 || $("#morada").val().trim().length > 200) {
                     $('#modal-content').append($('#moradaError').removeClass("error"));
                     //$("#moradaError").removeClass("error");
-                    retVal = false;
+                    retValMorada = false;
                 } else {
                     $('#modal-content').children("#moradaError").addClass("error");
                     //$("#moradaError").addClass("error");
                 }
-                if ($("#mail").val().trim().length < 10 || $("#mail").val().trim().length > 100 || !$("#mail").val().contains("@") || $("#mail").val().indexOf(".") < $("#mail").val().indexOf("@") || $("#mail").val().lastIndexOf(".") == ($("#mail").val().length-1)) {
-                    $('#modal-content').append($('#mailError').removeClass("error"));
+                //console.log($("#mail").val().trim().length);
+                //console.log($("#mail").val().indexOf("@") >= 0);
+                if ($("#mail").val().trim().length < 10 ||
+                    $("#mail").val().trim().length > 100 ||
+                    $("#mail").val().indexOf("@") < 0 ||
+                    $("#mail").val().lastIndexOf(".") < $("#mail").val().indexOf("@") ||
+                    $("#mail").val().lastIndexOf(".") === ($("#mail").val().indexOf("@") + 1) ||
+                    $("#mail").val().lastIndexOf(".") === ($("#mail").val().length - 1)) {
+                    $('#modal-content').append($("#mailError").removeClass("error"));
                     //$("#mailError").removeClass("error");
-                    retVal = false;
+                    retValEmail = false;
                 } else {
                     $('#modal-content').children("#mailError").addClass("error");
                     //$("#mailError").addClass("error");
@@ -52,17 +60,17 @@
                         locais++;
                     }
                 }
-                console.log(locais);
                 if (locais == 0 || locais > 2) {
                     $('#modal-content').append($('#localError').removeClass("error"));
                     //$("#moradaError").removeClass("error");
-                    retVal = false;
+                    retValLocal = false;
                 } else {
                     $('#modal-content').children("#localError").addClass("error");
                     //$("#moradaError").addClass("error");
                 }
                 $('#modal').modal('show');
-                return retVal;
+                //console.log(retVal);
+                if (!retValName || !retValMorada || !retValEmail || !retValLocal) return false;
             });
         });
     </script>
@@ -82,7 +90,7 @@
     </div>
     <div class="container">
         <div class="page-header">
-            <h1>Formulário para o concerto</h1>
+           <h1><span class="fa fa-address-card"></span> Formulário para o concerto</h1>
         </div>
         <div class="row">
             <form id="form" method="post" action="http://192.168.160.36/FormEcho.aspx">
