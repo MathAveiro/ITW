@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Temperaturas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#citySelector").change(function () {
+                $.ajax({
+                    url: "http://api.openweathermap.org/data/2.5/weather",                    data: {
+                        q: $("#citySelector").val(),
+                        APPID: 'b2b1df463182c3cca5276e9d3267cc95'
+                    },
+                    success: function(data) {
+                        if (data.name) {
+                            $("table").removeClass("hidden");
+                            $("#cityName").html(data.name + " / " + data.sys.country);
+                            $("#coordinates").html("Lon (º): " + data.coord.lon + "/ Lat (º) " + data.coord.lat);
+                            $("#weather").html(data.weather[0].description);
+                            $("#temp").html(data.main.temp.toString() + "ºK / " + (data.main.temp - 273.15).toString() + "ºC");
+                            $("#pressure").html(data.main.pressure);
+                            $("#allData").val(JSON.stringify(data));
+                        } else {
+                            $("table").addClass("hidden");
+                            alert(data.message);
+                        }
+                    },
+                    error: function (data) {
+                        $("table").addClass("hidden");
+                        alert("Error!");
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="=container">
+        <select id="citySelector" class="form-control">
+            <option value="">Select a city name</option>
+            <option value="Aveiro, PT">Aveiro</option>
+            <option value="Oporto, PT">Porto</option>
+            <option value="Paris, FR">Paris</option>
+            <option value="London, UK">Londres</option>
+            <option value="New York, USA">Nova Iorque</option>
+        </select>
+        <table class="table table-striped hidden">
+            <tr><td class="col-xs-2">City Name:</td><td class="col-xs-10" id="cityName"></td></tr>
+            <tr><td class="col-xs-2">Coordinates:</td><td class="col-xs-10" id="coordinates"></td></tr>
+            <tr><td class="col-xs-2">weather:</td><td class="col-xs-10" id="weather"></td></tr>
+            <tr><td class="col-xs-2">temp:</td><td class="col-xs-10" id="temp"></td></tr>
+            <tr><td class="col-xs-2">pressure:</td><td class="col-xs-10" id="pressure"></td></tr>
+            <tr><td class="col-xs-2">Dados recolhidos </td><td class="col-xs-10" id="allData"></td></tr>
+        </table>
+    </div>
+</body>
+</html>

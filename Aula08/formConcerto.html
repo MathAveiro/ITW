@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Exercício 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#local").change(function () {
+                var valMax = 0;
+                for (var i = 0; i < $("#local").children().length; i++) {
+                    if ($("#local").children()[i].selected) {
+                        if ($("#local").children()[i].value >= valMax) {
+                            valMax = $("#local").children()[i].value;
+                        }
+                    }
+                }
+                $("#valorMax").val(valMax);
+            });
+            $("#form").submit(function submit(event) {
+                var retVal = true;
+                if ($("#nome").val().trim().length < 10 || $("#nome").val().trim().length > 100) {
+                    $('#modal-content').append($('#nomeError').removeClass("error"));
+                    //$("#nomeError").removeClass("error");
+                    retVal = false;
+                } else {
+                    $('#modal-content').children("#nomeError").addClass("error");
+                }
+                if ($("#morada").val().trim().length < 20 || $("#morada").val().trim().length > 200) {
+                    $('#modal-content').append($('#moradaError').removeClass("error"));
+                    //$("#moradaError").removeClass("error");
+                    retVal = false;
+                } else {
+                    $('#modal-content').children("#moradaError").addClass("error");
+                    //$("#moradaError").addClass("error");
+                }
+                if ($("#mail").val().trim().length < 10 || $("#mail").val().trim().length > 100 || !$("#mail").val().contains("@") || $("#mail").val().indexOf(".") < $("#mail").val().indexOf("@") || $("#mail").val().lastIndexOf(".") == ($("#mail").val().length-1)) {
+                    $('#modal-content').append($('#mailError').removeClass("error"));
+                    //$("#mailError").removeClass("error");
+                    retVal = false;
+                } else {
+                    $('#modal-content').children("#mailError").addClass("error");
+                    //$("#mailError").addClass("error");
+                }
+                var locais = 0;
+                for (var i = 0; i < $("#local").children().length; i++) {
+                    if ($("#local").children()[i].selected) {
+                        locais++;
+                    }
+                }
+                console.log(locais);
+                if (locais == 0 || locais > 2) {
+                    $('#modal-content').append($('#localError').removeClass("error"));
+                    //$("#moradaError").removeClass("error");
+                    retVal = false;
+                } else {
+                    $('#modal-content').children("#localError").addClass("error");
+                    //$("#moradaError").addClass("error");
+                }
+                $('#modal').modal('show');
+                return retVal;
+            });
+        });
+    </script>
+    <style>
+        .error {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div id="modal-content" class="modal-content">
+                
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="page-header">
+            <h1>Formulário para o concerto</h1>
+        </div>
+        <div class="row">
+            <form id="form" method="post" action="http://192.168.160.36/FormEcho.aspx">
+                <label class="col-md-3 form-control-static" for="nome">Nome: </label>
+                <div class="col-md-9 ">
+                    <input class="form-control" type="text" id="nome" />
+                </div>
+                <div id="nomeError" class="col-md-12 form-control-static bg-danger text-danger error">Mínimo 10 letras, máximo 100</div>
+                
+                <label class="col-md-3 form-control-static" for="morada">Morada: </label>
+                <div class="col-md-9 ">
+                    <textarea class="col-md-9 form-control" id="morada"></textarea>
+                </div>
+                <div id="moradaError" class="col-md-12 form-control-static bg-danger text-danger error">Mínimo 20 letras, máximo 200</div>
+                <label class="col-md-3 form-control-static" for="mail">Email: </label>
+                <div class="col-md-9 ">
+                    <input class="col-md-9 form-control" type="text" id="mail" />
+                </div>
+                <div id="mailError" class="col-md-12 form-control-static bg-danger text-danger error">Exemplo: email@dominio.pt (Mínimo 10 caracteres, máximo 100)</div>
+                <label class="col-md-3 form-control-static" for="local">Local: </label>
+                <div class="col-md-9 ">
+                    <select class="col-md-9 form-control" id="local" multiple>
+                        <option value="100">Relva (frente)</option>
+                        <option value="80">Relva (trás)</option>
+                        <option value="50">Bancada (lateral)</option>
+                        <option value="65">Bancada (central)</option>
+                    </select>
+                </div>
+                <div id="localError" class="col-md-12 form-control-static bg-danger text-danger error">Selecionar pelo 1 ou dois locais.</div>
+                <label class="col-md-3 form-control-static" for="valorMax">Valor máximo:</label>
+                <div class="col-md-9 ">
+                    <input class="col-md-9 form-control" readonly type="text" id="valorMax" />
+                </div>
+                <hr class="col-md-12"/>
+                <div class="col-md-12 text-center">
+                    <input type="submit" class="btn btn-primary" value="Submeter" id="submit" />
+                    <input type="reset" class="btn" value="Apagar dados" id="reset" />
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
